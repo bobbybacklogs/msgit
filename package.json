@@ -1,0 +1,44 @@
+{
+  "name": "msgit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The secret ingredient is commit MSG. Git commit messages generated from your staged diff, seasoned by a judgmental cooking uncle.",
+  "keywords": [
+    "git",
+    "commit",
+    "commit-message",
+    "cli",
+    "conventional-commits",
+    "modelhitch"
+  ],
+  "license": "MIT",
+  "author": "Bobby Backlogs",
+  "type": "module",
+  "bin": {
+    "msgit": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/cli.ts",
+    "typecheck": "tsc -p tsconfig.test.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run typecheck && npm run test && npm run build"
+  },
+  "dependencies": {
+    "commander": "^15.0.0",
+    "picocolors": "^1.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  }
+}
